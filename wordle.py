@@ -1,14 +1,24 @@
 from datetime import date
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+WORDS = {
+    "ru5": os.path.join(BASE_DIR, "words.txt"),
+    "ru6": os.path.join(BASE_DIR, "words_ru6.txt"),
+    "en": os.path.join(BASE_DIR, "words_en.txt"),
+}
+
 EMOJI = {
     "correct": "🟩",
     "present": "🟨",
     "absent": "⬜"
 }
 
-def load_words(path: str = "words.txt") -> list[str]:
+def load_words(path: str) -> list[str]:
     with open(path, encoding="utf-8") as f:
-        words = [line.strip().lower() for line in f if len(line.strip()) == 5]
+        words = [line.strip().lower() for line in f if line.strip()]
     return list(set(words))
 
 def get_daily_word(words: list[str]) -> str:
@@ -16,15 +26,15 @@ def get_daily_word(words: list[str]) -> str:
     return words[day_number % len(words)]
 
 def check_guess(answer: str, guess: str) -> list[str]:
-    result = ["absent"] * 5
+    result = ["absent"] * len(answer)
     answer_chars = list(answer)
 
-    for i in range(5):
+    for i in range(len(answer)):
         if guess[i] == answer[i]:
             result[i] = "correct"
             answer_chars[i] = None
 
-    for i in range(5):
+    for i in range(len(answer)):
         if result[i] == "correct":
             continue
         if guess[i] in answer_chars:
