@@ -10,6 +10,19 @@ A fully functional Telegram bot that brings the popular game Wordle to your chat
 * **Data Persistence:** Player statistics and game history are saved to an SQLite database and automatically backed up to an external `backup_stats.json` file.
 * **OOP Architecture:** Core game mechanics are cleanly encapsulated within custom Python classes.
 
+# Project Structure
+      wordle_bot/
+      │
+      ├── bot.py                # Main bot application and FSM handlers
+      ├── database.py           # SQLite database setup and JSON backup logic
+      ├── wordle.py             # OOP game logic, decorators, and validations
+      ├── test_wordle.py        # Unit tests for the core gameplay algorithm
+      ├── words.txt             # 5-letter Russian word bank
+      ├── words_ru6.txt         # 6-letter Russian word bank
+      ├── words_en.txt          # 5-letter English word bank
+      └── requirements.txt      # Project dependencies
+
+
 ## Technologies Used
 * **Language:** Python 3.10
 * **Bot Framework:** `aiogram` (v3.4.1)
@@ -45,14 +58,14 @@ A fully functional Telegram bot that brings the popular game Wordle to your chat
 
     BOT_TOKEN=your_token_here
 
-How to Run the Project
+## How to Run the Project
 
-To start the bot, run the main script from your terminal:
+-To start the bot, run the main script from your terminal:
 Bash
 
 python bot.py
 
-To run the unit tests and verify the core game logic:
+-To run the unit tests and verify the core game logic:
 Bash
 
 python test_wordle.py
