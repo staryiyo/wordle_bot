@@ -57,20 +57,22 @@ Bash
 
 python test_wordle.py
 
-Screenshots
+# Screenshots
 
-    Note: Replace these placeholder texts with actual image links once uploaded to your repository.
+   <img width="793" height="326" alt="изображение" src="https://github.com/user-attachments/assets/b1c9fd87-b0eb-4290-a8da-3e00c8cdf560" />
+    <img width="776" height="268" alt="изображение" src="https://github.com/user-attachments/assets/e13f2727-8682-4abf-85f2-52fafb2f128f" />
+    <img width="768" height="250" alt="изображение" src="https://github.com/user-attachments/assets/12d7da6d-d3d8-44df-a728-c590088fb570" />
+    <img width="749" height="311" alt="изображение" src="https://github.com/user-attachments/assets/943b0bd3-c679-4bb8-bde6-f56b615e88e4" />
+    <img width="770" height="214" alt="изображение" src="https://github.com/user-attachments/assets/60e137cd-f2e7-4684-97db-c8e23bc27b7b" />
 
-    Screenshot 1: The main menu and inline keyboard.
 
-    Screenshot 2: Gameplay process with color-coded feedback.
 
-    Screenshot 3: The /stats command output.
+# Team Members & Roles
+ 
+      Group: SE-2513
+      
+    Alizhan Rymkhan : Core Game Logic & OOP. Developed the WordleGame class, custom performance decorators, and the word-validation algorithms.
 
-Team Members & Roles
+    Shangerey Adilbek : Telegram API Integration. Implemented aiogram handlers, the Finite State Machine (FSM), and interactive inline keyboards.
 
-    Rinat Turkmengali (Group SE-2513): Core Game Logic & OOP. Developed the WordleGame class, custom performance decorators, and the word-validation algorithms.
-
-    Abylay (Group SE-2513): Telegram API Integration. Implemented aiogram handlers, the Finite State Machine (FSM), and interactive inline keyboards.
-
-    Ivan (Group SE-2513): Data Persistence & QA. Designed the SQLite database schema, implemented the JSON backup functionality, and wrote unit tests for code robustness.
+    Yerketay Zhanserik : Data Persistence & QA. Designed the SQLite database schema, implemented the JSON backup functionality, and wrote unit tests for code robustness.
