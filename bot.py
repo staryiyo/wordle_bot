@@ -56,10 +56,6 @@ async def mode_chosen(call: CallbackQuery, state: FSMContext):
     today = str(date.today())
     game_key = f"{today}_{mode}"
 
-    if get_today_game(user_id, game_key):
-        await call.message.edit_text("Ты уже играл в этом режиме сегодня. Возвращайся завтра! 🕐\nСтатистика: /stats")
-        return
-
     words = load_words(WORDS[mode])
     word = get_daily_word(words)
 

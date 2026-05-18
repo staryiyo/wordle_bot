@@ -1,4 +1,5 @@
 import sqlite3
+import json  # Добавили импорт для соответствия требованиям силлабуса
 
 DB_PATH = "wordle.db"
 
@@ -53,7 +54,25 @@ def save_game(user_id: int, username: str, date: str, word: str, solved: bool, a
             total_wins = total_wins + ?
     """, (user_id, username, int(solved), int(solved)))
     conn.commit()
-    conn.close()
+    
+    # --- ТРЕБОВАНИЕ СИЛЛАБУСА: Запись во внешний JSON файл ---
+    try:
+        cur.execute("SELECT * FROM users")
+        rows = cur.fetchall()
+        stats_list = []
+        for r in rows:
+            stats_list.append({
+                "user_id": r[0],
+                "username": r[1],
+                "total_games": r[2],
+                "total_wins": r[3]
+            })
+        with open("backup_stats.json", "w", encoding="utf-8") as json_file:
+            json.dump(stats_list, json_file, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Ошибка дублирования в JSON: {e}")
+    finally:
+        conn.close()
 
 def get_stats(user_id: int):
     conn = sqlite3.connect(DB_PATH)
